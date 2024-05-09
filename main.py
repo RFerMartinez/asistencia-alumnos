@@ -2,10 +2,10 @@
 print("Hola mundo")
 
 
-x = 3
+x = input("Ingrese un valor")
 y = 2
 z = x + y
 
-print("la suma es: ", z)
+print("la suma es: ", x+y)
 
 
