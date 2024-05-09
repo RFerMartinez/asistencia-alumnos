@@ -6,6 +6,6 @@ x = 3
 y = 2
 z = x + y
 
-print(f"la suma es {z}")
+print("la suma es: ", z)
 
 
