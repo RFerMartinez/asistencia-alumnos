@@ -1,0 +1,18 @@
+CURSO - ECOM - DESARROLLO WEB
+
+Crear entorno virtual:
+    python -m venv ve_asistencia_alumnos
+    pip list (para verificar su instalacion y versión)
+
+django-admin --help (para todos los comandos con ese perfil)
+
+Crear un proyecto:
+    django-admin startproject asistencia_alumnos
+
+Se crea una carpeta con el proyecto, dicah carpeta tiene un archivo manage.py. Este archivo 
+me sirve para ejecutar un servidor local, se hace con el siguiente comandos
+    python manage.py runserver
+
+
+
+
