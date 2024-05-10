@@ -13,6 +13,7 @@ Se crea una carpeta con el proyecto, dicah carpeta tiene un archivo manage.py. E
 me sirve para ejecutar un servidor local, se hace con el siguiente comandos
     python manage.py runserver
 
-
-
+A traves de las variables de contexto, se puede mandar información a las vistas
+def login(request):
+    return render(request=request, template_name='login.html', context={})
 
