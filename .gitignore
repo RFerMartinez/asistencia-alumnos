@@ -1,3 +1,2 @@
 # ignorar todos los archivos con extencion .pyc Son archivos de python compilados propio de cada pc
 *.pyc
-
