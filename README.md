@@ -1,5 +1,8 @@
 # asistencia-alumnos
 Sitio web para la gestion de asistencias de alumnos a clases.
+
+Python 3.11.3
+
 Cuenta con modulos para:
 * Manejar alumnos: Crear, Modificar, Eliminar alumnos.
 * Filtros: filtrar alumnos.

@@ -17,3 +17,81 @@ A traves de las variables de contexto, se puede mandar información a las vistas
 def login(request):
     return render(request=request, template_name='login.html', context={})
 
+======================================================
+CONCEPTO DE ORM
+La 'M' viene de mapping, nos permite matear. La 'O' viene de object, objeto. la R es relacion.
+me permite mapear un elemento de una relacion con un objeto que va a ser una clase.
+anteriormente en un archivo.txt, cada linea era un alumno. A nivel programacin, insanciabamos un alumnos, haciamos operaciones, luego
+guardabamos con el metodo to_linea(). Ahora la base de datos va a tener una tqabla que se va a llamar alumnos, esto me va a permitir
+guardar un alumno en un registro.
+UN ORM ME PERMITE MAPEAR UNA TABLA EN UNA BASE DE DATO RELAIONAL CON UNA CLASE DENTRO DEL proyecto 
+Esto lo que hace es abstraer del tipo de motor de base de dato que utilizo (postgres, mysql, sqlserver)
+Yo no voy a estar ejecutando consultas SQL, por que de estas cosas me va a abstraer el ORM, luego del motor que esté usando, armará
+la querry correspondiente al motor
+
+INSTALANDO DBeaver y PostgresSQL
+
+Al abrir DBeaver, se hace una nueva base de datos (haciendo una nueva coneccion), luego se crea un usuario en la base de datos 'postgres'
+con el siguiente script: "create user asistencia_alumnos with encrypted password '12345678';"
+
+Otorgar privilegios: "grant all privileges on database asistencia_alumnos to asistencia_alumnos;"
+"grant all privileges on database <DB_name> to <user>;"
+
+'''
+Todo lo anterior se lo hace por que al momento de instalar un DBMS, por ejemplo Postgress, te pide que crees una contraseña.
+Por ende, cuando abro DBeaver se realiza la coneccion a una base de datos default. Entonces es ahí cuando creo un nuevo
+usuario y le doy permisos a la nueva base de datos.
+'''
+
+Luego se crea una nueva coneccion con database: asistencia_alumnos. usuario: asistencia_alumnos. password: 12345678.
+
+Django puede conectarse a multiples Bases de Datos, por ende una de las cosas que le vamos a indicar que conector vamos a usar. Es decir
+a que BD se tiene que conectar. si nosotros nos queremos conectar a una base de datos que no se SQLite, tendremos que usar un conector. Y 
+por default, Django no viene instalado con el conector, por eso hay que instalarlo dentro de nuestro proyecto. Es una dependencia
+Para postgres, el conector es: --> 'psycopg2'
+
+CONFIGURAR PARA LA CONECCION:
+En --> asistencia_alumnos/asistencia_alumnos/settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'asistencia_alumnos',
+        'USER': 'asistencia_alumnos',
+        'PASSWORD': '12345678',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
+}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'asistencia_alumnos',
+        'USER': 'postgres',
+        'PASSWORD': 'FerBD42276',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
+}
+
+
+INICIALIZAR TABLAS QUE YA TRAE DJANGO:
+NSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth', # Autorización
+    'django.contrib.contenttypes',
+    'django.contrib.sessions', # Tablas para manejas información de secion
+    'django.contrib.messages', # Para poder enviar mensajes entre vistas
+    'django.contrib.staticfiles', # para trabajar archivos estaticos
+    # 'materias',
+    # 'asistencias',
+    # 'usuarios',
+]
+
+--> python manage.py migrate
+Lo anterior lo que hace es: agarrar la coneccion por default y va a crear tablas
+
+
+
+
+
+

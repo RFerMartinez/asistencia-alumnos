@@ -32,11 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', # Autorización
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.sessions', # Tablas para manejas información de secion
+    'django.contrib.messages', # Para poder enviar mensajes entre vistas
+    'django.contrib.staticfiles', # para trabajar archivos estaticos
+    # 'materias',
+    # 'asistencias',
+    # 'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,12 @@ WSGI_APPLICATION = 'asistencia_alumnos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'asistencia_alumnos',
+        'USER': 'postgres',
+        'PASSWORD': 'FerBD42276',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
