@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asistencia_alumnos/css/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Bienvenidos al sitio de asistencia</h1>
+
+    <a href="{% url 'iniciar_sesion' %}">Ir al login</a>
+
+    <a href="{% url 'pagina_principal' %}">Ir al home</a>
+
+    <div>
+        {{alumnos}}
+    </div>
+    <table>
+        <caption>ALUMNOS</caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>NOMBRE DE USUARIO</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <th>{{usuario.first_name}}</th>
+                    <th>{{usuario.last_name}}</th>
+                    <th>{{usuario.username}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

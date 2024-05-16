@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions', # Tablas para manejas información de secion
     'django.contrib.messages', # Para poder enviar mensajes entre vistas
     'django.contrib.staticfiles', # para trabajar archivos estaticos
+    'apps.usuarios'
     # 'materias',
     # 'asistencias',
-    # 'usuarios',
 ]
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

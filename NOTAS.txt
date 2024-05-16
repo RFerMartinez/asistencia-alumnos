@@ -19,8 +19,8 @@ def login(request):
 
 ======================================================
 CONCEPTO DE ORM
-La 'M' viene de mapping, nos permite matear. La 'O' viene de object, objeto. la R es relacion.
-me permite mapear un elemento de una relacion con un objeto que va a ser una clase.
+La 'M' viene de mapping, nos permite mapear. La 'O' viene de object, objeto. la R es relacion.
+me permite mapear un elemento de una relacion (base de dato relacional) con un objeto que va a ser una clase.
 anteriormente en un archivo.txt, cada linea era un alumno. A nivel programacin, insanciabamos un alumnos, haciamos operaciones, luego
 guardabamos con el metodo to_linea(). Ahora la base de datos va a tener una tqabla que se va a llamar alumnos, esto me va a permitir
 guardar un alumno en un registro.
@@ -90,8 +90,20 @@ NSTALLED_APPS = [
 --> python manage.py migrate
 Lo anterior lo que hace es: agarrar la coneccion por default y va a crear tablas
 
+borrar caché de git --> git rm -rf --cached
 
 
+UNA VEZ REALIZADA LA MIGRACION, SE CREA UNA APP, POR EJEMPLO USUARIOS, SE LE AGREGA UN ARCHIVO url.py, TODO LO QUE
+SEA TABLA DEL MODULO USUARIO LO VOY A TRABAJAR DENTRO DE models.py
+Se crea una clase, para que esa clase se termine mapeando cono una tabla en nuestra base de datos
+Para indicarle que no es una lcase convencional, si no que, es una clase para mapear una base de datos, lo que se
+hace es agregar una herencia, para trabajar con ORM
 
+al hacer un nuevo modelo
+python manage.py mamkemigrations
+python manage.py migrate
+
+CADA APLICACION TIENE UN ARCHIVO QUE SE LLAMA admin.py
+se pueden registrar los modelos
 
 
