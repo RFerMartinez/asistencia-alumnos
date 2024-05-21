@@ -118,3 +118,5 @@ y esa barra de navegacion va a ser compartida entre multiples templates.
 En Django existe esto en forma de herencia, se define un template 'base', el cual va a tener una barra de navegacion con opciones
 cuando se elije unas de las opciones, solo va a cambiar el contenido (esta es la parte dinámica de la página)
 
+para que un archivo -html herede de un archivo .html 'base' se lo hace de la sguiente manera
+{% extends 'base/base.html' %}
