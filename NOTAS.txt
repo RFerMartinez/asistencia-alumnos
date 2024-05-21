@@ -106,4 +106,15 @@ python manage.py migrate
 CADA APLICACION TIENE UN ARCHIVO QUE SE LLAMA admin.py
 se pueden registrar los modelos
 
+======================================================
+INTEGRAR BOOTSTRAP
+
+MANEJO DE PAGINAS DINAMICAS
+Esto es el caso en que se tiene varias paginas y se quiere que en todas las páginas se tengan los mismos links
+Lo que primero se piensa es que en TODAS las páginas se tendría que agregar los link, pero esto sería
+muy ineficiente e inmanejable.
+Cuando se trabaja con 'elementos en comun' se puede trabajar con 'bloques', por ejemplo una abrra de navegacion
+y esa barra de navegacion va a ser compartida entre multiples templates.
+En Django existe esto en forma de herencia, se define un template 'base', el cual va a tener una barra de navegacion con opciones
+cuando se elije unas de las opciones, solo va a cambiar el contenido (esta es la parte dinámica de la página)
 

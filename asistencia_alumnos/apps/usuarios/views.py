@@ -20,3 +20,5 @@ def listar_usuarios(request):
         'usuarios': lista_de_diccionarios_usuarios,
     }
     return render(request=request, template_name='usuarios/listar_todos.html', context=ctx)
+
+

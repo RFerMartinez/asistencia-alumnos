@@ -11,7 +11,8 @@ urlpatterns = [
 
     #INCLUDES
 
-    path("usuarios/", include('apps.usuarios.urls'))
+    path("usuarios/", include('apps.usuarios.urls')),
+    path("clases/", include('apps.clases.urls')),
 ]
 
 # Siempre que definimos una URL lo va a manejar un controlador, en caso de Django es una vista.
