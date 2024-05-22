@@ -121,7 +121,29 @@ cuando se elije unas de las opciones, solo va a cambiar el contenido (esta es la
 para que un archivo -html herede de un archivo .html 'base' se lo hace de la sguiente manera
 {% extends 'base/base.html' %}
 
+======================================================
+Para el envio de datos a traves de un formulario, se utilizan dos métodos
 
+.método GET
+(en el método get los datos van a viajar a travez de los query param, parametros query. Se va a generar una nueva
+url y va a viajar por la url)
 
+.método POST
+(En el método POST los datos que enviemos viajan por otro lugar que no es facilmente identificable)
 
+PROBANDO MÉTODO GET
+Dentro de la etiqueta 'form' se especifica el método a utilizar --> <form metod='get'></form>
+http://127.0.0.1:8000/login/?username=fer&pasword=asdasdasd
+<QueryDict: {'username': ['fer'], 'password': ['asdasdasd']}>  <-- print(request.GET)
+
+Cuando yo quiero obetner via request.GET el dato de un input, el valor de la clave de la queryDict sera el id del input
+<input type="password" id="password">
+
+PROBANDO MÉTODO POST
+Para usar el método POST se hace lo siguiente
+<form metod='post'></form>{% csrf_token %}
+Cuando utilizo el POST, a demas de recibir el username y el password por ejemplo, recibo un token
+
+printf(request.POST)
+<QueryDict: {'csrfmiddlewaretoken': ['Ni3eKBFkkCsAVQkF6lSbiSU6b3UQEZBQBPBEmWra5x6aZgztLtd7pPn3k5UPxaM6'], 'username': ['fer'], 'password': ['asdasdasd']}>
 
