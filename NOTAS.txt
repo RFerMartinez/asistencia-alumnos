@@ -120,3 +120,8 @@ cuando se elije unas de las opciones, solo va a cambiar el contenido (esta es la
 
 para que un archivo -html herede de un archivo .html 'base' se lo hace de la sguiente manera
 {% extends 'base/base.html' %}
+
+
+
+
+
