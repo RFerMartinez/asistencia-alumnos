@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent # Obtiene la ruta de la carpeta base del proyecto, desde el disco C:\
@@ -33,6 +34,10 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+LOGIN_REDIRECT_URL = reverse_lazy('pagina_principal')
+
+LOGIN_URL = reverse_lazy('iniciar_sesion')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
