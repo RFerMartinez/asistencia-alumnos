@@ -5,7 +5,10 @@
         <h1 class="h2">SITIO DE ASISTENCIA</h1>
     </div>
 
-Inicie sesión para continuar
-{{user}}
+{% if user.is_authenticated %}
+    Bienvenido, {{user.username}}
+{% else %}
+    Inicie sesión para continuar
+{% endif %}
 
 {% endblock contenido %}

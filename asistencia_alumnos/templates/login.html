@@ -7,11 +7,13 @@
 
 <div class="card">
     <div class="card-body">
-        {% if mensaje_error %}
+
+        {% if form.errors %}
             <div class="alert alert-danger" role="alert">
-                {{mensaje_error}}
+                Usuario y/o contraseña incorrecta
             </div>
         {% endif %}
+
         <form method="post">{% csrf_token %}
             <label class="form-label">Nombre de usuario</label>
             <input type="text" id="username" name="username" value="{{nombre_usuario}}" class="form-control">
