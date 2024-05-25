@@ -6,6 +6,7 @@ app_name = "clases"
 
 urlpatterns = [
     path('listar-todos/', views.listar_clases, name='listar_clases'),
+    path('nueva/', views.CrearClase.as_view(), name='crear'),
 ]
 '''
 La url se va a dirigir a 'listar-todos' (similar a listar para los alumnos), pero va a llamar a una vista diferente.

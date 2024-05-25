@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Nueva Clase</h1>
+    </div>
+
+    <form action="" method="POST">{% csrf_token %}
+
+        {% if mensajeTodoCorrecto %}
+            <div class="alert alert-success" role="alert">
+                {{mensajeTodoCorrecto}}
+            </div>
+        {% endif %}
+
+        {{form.error}}
+
+        {{form.as_p}}
+
+        <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Guardar</button>
+        <hr class="my-4">
+    </form>
+
+
+{% endblock contenido %}
