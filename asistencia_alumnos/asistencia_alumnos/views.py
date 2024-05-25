@@ -6,8 +6,11 @@ estas son dos formas de escribir un controlador
 from django.shortcuts import render, redirect
 
 from apps.usuarios.models import Usuario
+from apps.usuarios.forms import FormularioRegistro, FormularioRegistroUsuario
 
 from django.contrib.auth import authenticate, login as login_django
+
+
 
 # VISTA  A PARTIR DE UNA FUNCION
 # el protocolo http que permite comunicar entre cliente y servidor son solicitudes y respuestas
@@ -58,4 +61,43 @@ def home(request):
     ctx = {
     }
     return render(request=request, template_name='home.html', context=ctx)
+
+def registrarme(request):
+    template_name = "registrarme.html"
+    form = FormularioRegistroUsuario()
+
+    mensajeTodoCorrecto = None
+
+    if request.method == 'POST':
+        # Guardar el usuario. FORMA ARTESANAL
+        '''
+        usernameObtenido = request.POST.get('username')
+        last_nameObtenido = request.POST.get('last_name')
+        first_nameeObtenido = request.POST.get('first_name')
+        passwordObtenido = request.POST.get('password')
+        print(f"username --> {usernameObtenido}\nlast_name --> {last_nameObtenido}\nfirst_name --> {first_nameeObtenido}\npassword --> {passwordObtenido}")
+        
+        u = Usuario(
+            username = usernameObtenido,
+            last_name = last_nameObtenido,
+            first_name = first_nameeObtenido,
+            password = passwordObtenido,
+        )
+        # Debido a que Usuario hereda de AbstracUser, tiene un método que hereda, es el método save()
+        u.save()
+        '''
+        form = FormularioRegistroUsuario(request.POST)
+        print(f"is_valid: {form.is_valid()}")
+
+        if form.is_valid():
+            form.save()
+            mensajeTodoCorrecto = "Usuario creado correctamente, puede iniciar sesion"
+        else:
+            print(f"ERRORES: {form.errors}")
+
+    ctx = {
+        'form': form,
+        'mensajeTodoCorrecto': mensajeTodoCorrecto,
+    }
+    return render(request=request, template_name=template_name, context=ctx)
 

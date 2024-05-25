@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser #Esto se ahce para trabajar 
 
 from django.db import models
 
+# La tabla 'Usuario' tiene todos los atributos de 'AbstractUser' y se le agrega un atributo más, que es 'biografía'
 class Usuario(AbstractUser):
     biografia = models.CharField(max_length=255, null=True, blank=True)
     # Lo anterior se tiene que actualizar en una tabla 'Usuario' ya existente
