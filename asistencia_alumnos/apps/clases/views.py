@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from .forms import ClaseForm
 from .models import Clase
@@ -20,3 +20,8 @@ class CrearClase(CreateView):
     form_class = ClaseForm
     success_url = reverse_lazy('clases:listar_clases')
 
+class EditarClase(UpdateView):
+    template_name = "clases/editar.html"
+    model = Clase
+    form_class = ClaseForm #Tiene el mismo modelo, ya que los campos que se usan para crear, también se usan para editar
+    success_url = reverse_lazy('clases:listar_clases')

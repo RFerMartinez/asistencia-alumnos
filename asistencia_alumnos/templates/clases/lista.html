@@ -14,8 +14,10 @@
 
             <thead>
                 <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Cantidad Alumnos</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
 
@@ -23,8 +25,12 @@
 
                 {% for c in clases %}
                     <tr>
-                        <th scope="row">{{c.fecha}}</th>
+                        <th scope="row">{{c.pk}}</th>
+                            <td>{{c.fecha}}</td>
                             <td>Mark</td>
+                            <td>
+                                <a href="{% url 'clases:editar' c.pk %}" class="btn btn-primary btn-sm">editar</a>
+                            </td>
                     </tr>
                 {% endfor %}
 
