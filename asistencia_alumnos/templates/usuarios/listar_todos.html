@@ -2,27 +2,77 @@
 
 {% block contenido %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">LISTA DE USUARIOS</h1>
+    <h1 class="h2">{{icono}} LISTA DE USUARIOS</h1>
 </div>
 
-<table>
-    <caption>ALUMNOS</caption>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>NOMBRE DE USUARIO</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for usuario in usuarios %}
-            <tr>
-                <th>{{usuario.first_name}}</th>
-                <th>{{usuario.last_name}}</th>
-                <th>{{usuario.username}}</th>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col">
+
+        <a href="{% url 'clases:crear' %}" class="btn btn-primary">Nueva Usuario</a>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">NOMBRE DE USUARIO</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for u in usuarios %}
+                    <tr>
+                        <th scope="row">{{u.pk}}</th>
+                            <td>{{u.first_name}}</td>
+                            <td>{{u.last_name}}</td>
+                            <td>{{u.username}}</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">editar</a>
+                            </td>
+                    </tr>
+                {% empty %} <!--En el caso de que el for anterior no pueda iterar nada. Se ejecuta lo que esté en el 'empty'-->
+                    <tr>
+                        <td colspan="5">
+                            <h5>NO EXISTE REGISTROS</h5>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        {% if is_paginated %}
+
+            <p>pagina actual: {{page_obj.number}}</p>
+
+            {% if page_obj.has_next %}
+                <p>pagina siguiente: {{page_obj.next_page_number}}</>
+            {% endif %}
+
+            <p>tiene siguiente?: {{page_obj.has_next}}</p>
+
+            <p>tiene anterior?: {{page_obj.has_preview}}</p>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page item"><a href="#" class="page-link">Anterior</a></li>
+                    <li class="page item"><a href="#" class="page-link">1</a></li>
+                    <li class="page item"><a href="#" class="page-link">2</a></li>
+                    <li class="page item"><a href="#" class="page-link">3</a></li>
+                    {% if page_obj.has_next %}
+                        <li class="page item"><a href="?page={{page_obj.next_page_number}}" class="page-link">Siguiente</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        {% endif %}
+
+
+    </div>
+</div>
 
 {% endblock contenido %}

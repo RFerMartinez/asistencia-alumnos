@@ -8,5 +8,6 @@ materias, de alumnos, etc. Para ello se le da un nombre un nombre 'app_name= "us
 '''
 
 urlpatterns = [
-    path('listar-todos/', views.listar_usuarios, name='listar_todos'),
+    # path('listar-todos/', views.listar_usuarios, name='listar_todos'), # --->             vista basada en funcion
+    path('listar-todos/', views.ListarUsuarios.as_view(), name='listar_todos'), # --->      vista basada en clases
 ]
