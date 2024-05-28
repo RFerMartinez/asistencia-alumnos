@@ -14,9 +14,8 @@
 
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Cantidad Alumnos</th>
+                    <th scope="col">Cantidad Alumnos Presentes</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -25,11 +24,11 @@
 
                 {% for c in clases %}
                     <tr>
-                        <th scope="row">{{c.pk}}</th>
-                            <td>{{c.fecha}}</td>
-                            <td>Mark</td>
+                        <th scope="row">{{c.fecha}}</th>
+                            <td></td>
                             <td>
                                 <a href="{% url 'clases:editar' c.pk %}" class="btn btn-primary btn-sm">editar</a>
+                                <a href="{% url 'asistencias:marcar_asistencia' c.id %}" class="btn btn-success btn-sm">marcar asistencias</a>
                             </td>
                     </tr>
                 {% endfor %}

@@ -16,9 +16,9 @@ urlpatterns = [
     # path('logout/', views_django.LoginView.as_view(template_name="login.html"), name="cerrar_sesion"),
 
     #INCLUDES
-
     path("usuarios/", include('apps.usuarios.urls')),
     path("clases/", include('apps.clases.urls')),
+    path("asistencias/", include('apps.asistencias.urls')),
 ]
 
 # Siempre que definimos una URL lo va a manejar un controlador, en caso de Django es una vista.
