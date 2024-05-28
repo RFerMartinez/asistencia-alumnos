@@ -44,34 +44,7 @@
 
             </tbody>
         </table>
-
-        {% if is_paginated %}
-
-            <p>pagina actual: {{page_obj.number}}</p>
-
-            {% if page_obj.has_next %}
-                <p>pagina siguiente: {{page_obj.next_page_number}}</>
-            {% endif %}
-
-            <p>tiene siguiente?: {{page_obj.has_next}}</p>
-
-            <p>tiene anterior?: {{page_obj.has_preview}}</p>
-
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page item"><a href="#" class="page-link">Anterior</a></li>
-                    <li class="page item"><a href="#" class="page-link">1</a></li>
-                    <li class="page item"><a href="#" class="page-link">2</a></li>
-                    <li class="page item"><a href="#" class="page-link">3</a></li>
-                    {% if page_obj.has_next %}
-                        <li class="page item"><a href="?page={{page_obj.next_page_number}}" class="page-link">Siguiente</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-
-        {% endif %}
-
-
+        {% include 'base/paginacion.html' %}
     </div>
 </div>
 

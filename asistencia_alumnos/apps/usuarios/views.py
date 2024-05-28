@@ -32,7 +32,7 @@ class ListarUsuarios(ListView):
     model = Usuario
 
     # Para paginar los dato que se muestran
-    paginate_by = 2
+    paginate_by = 10
 
     # Redefinir el nombre del contexto, en vez de que se llame 'object_list', se llamará 'usuarios'
     context_object_name = "usuarios"
