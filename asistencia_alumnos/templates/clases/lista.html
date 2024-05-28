@@ -25,7 +25,7 @@
                 {% for c in clases %}
                     <tr>
                         <th scope="row">{{c.fecha}}</th>
-                            <td></td>
+                            <td>{{c.get_cantidad_presentes}}</td>
                             <td>
                                 <a href="{% url 'clases:editar' c.pk %}" class="btn btn-primary btn-sm">editar</a>
                                 <a href="{% url 'asistencias:marcar_asistencia' c.id %}" class="btn btn-success btn-sm">marcar asistencias</a>
