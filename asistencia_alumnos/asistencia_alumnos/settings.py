@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.clases',
     # 'materias',
-    # 'asistencias',
+    'apps.asistencias',
 ]
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
