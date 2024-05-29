@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block css_extras %}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock css_extras %}
+
+{% block contenido %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Nueva Materia</h1>
+    </div>
+
+    <form action="" method="POST">{% csrf_token %}
+
+        {% if mensajeTodoCorrecto %}
+            <div class="alert alert-success" role="alert">
+                {{mensajeTodoCorrecto}}
+            </div>
+        {% endif %}
+
+        {{form.error}}
+
+        {{form.as_p}}
+
+        <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Guardar</button>
+        <hr class="my-4">
+    </form>
+
+
+{% endblock contenido %}
+
+{% block js_extras %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $('#id_categorias').select2({
+            width: '100%',
+        });
+    </script>
+{% endblock js_extras %}
