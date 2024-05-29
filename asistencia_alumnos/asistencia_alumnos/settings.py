@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', # para trabajar archivos estaticos
     'apps.usuarios',
     'apps.clases',
-    # 'materias',
+    'apps.materias',
     'apps.asistencias',
 ]
 

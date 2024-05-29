@@ -19,6 +19,7 @@ urlpatterns = [
     path("usuarios/", include('apps.usuarios.urls')),
     path("clases/", include('apps.clases.urls')),
     path("asistencias/", include('apps.asistencias.urls')),
+    path("materias/", include('apps.materias.urls')),
 ]
 
 # Siempre que definimos una URL lo va a manejar un controlador, en caso de Django es una vista.

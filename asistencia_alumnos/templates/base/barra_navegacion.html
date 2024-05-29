@@ -2,12 +2,20 @@
     <ul class="nav flex-column">
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{% url 'usuarios:listar_todos' %}">
+                <i class="fas fa-users"></i>
                 LISTA DE USUARIOS
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2" href="{% url 'clases:listar_clases' %}">
+                <i class="fas fa-chalkboard-teacher"></i>
                 LISTA DE CLASES
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'materias:listar_materias' %}">
+                <i class="fas fa-book"></i>
+                MATERIAS
             </a>
         </li>
     </ul>
@@ -16,11 +24,13 @@
 
     <ul class="nav flex-column mb-auto">
 
-        <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'registrarme' %}">
-                REGISTRARME
-            </a>
-        </li>
+        {% if not user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'registrarme' %}">
+                    REGISTRARME
+                </a>
+            </li>
+        {% endif %}
 
         <li class="nav-item">
             {% if user.is_authenticated %}
