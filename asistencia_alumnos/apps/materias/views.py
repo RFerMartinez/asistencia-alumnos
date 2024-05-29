@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -15,7 +16,7 @@ class Listar(ListView):
         return self.model.objects.all()
 
 
-class CrearMateria(CreateView):
+class CrearMateria(LoginRequiredMixin, CreateView):
     template_name = "materias/crear.html"
     model = Materia
     form_class = MateriaForm

@@ -37,9 +37,10 @@
                 <form action="{% url 'cerrar_sesion' %}" method="post">{% csrf_token %}
                     <button class="nav-link d-flex align-items-center gap-2 bi" type="submit"
                     style="text-transform: uppercase;">Salir</button>
+                    <i class="fas fa-sign-out-alt"></i>
                 </form>
             {% else %}
-                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'iniciar_sesion' %}">INICIAR SESION</a>
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'iniciar_sesion' %}"><i class="fas fa-sign-in-alt"></i>INICIAR SESION</a>
             {% endif %}
         </li>
     </ul>
