@@ -5,6 +5,8 @@ from apps.usuarios.models import Usuario
 
 from .models import Asistencia
 
+# Ahora yo quiero que en esta vista no se pueda acceder si es que alguine conoce la url
+# tampoco se podrá acceder alguien que no sea profesor
 def marcar_asistencia(request, clase_id):
     template_name = 'asistencias/marcar_asistencias.html'
 

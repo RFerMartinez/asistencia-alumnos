@@ -62,6 +62,12 @@ def home(request):
     }
     return render(request=request, template_name='home.html', context=ctx)
 
+def pagina_error_permisos(request):
+
+    ctx = {
+    }
+    return render(request=request, template_name='paginas/error_permisos.html', context=ctx)
+
 def registrarme(request):
     template_name = "registrarme.html"
     form = FormularioRegistroUsuario()

@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='pagina_principal'),
     path('registrarme/', views.registrarme, name='registrarme'),
+    path('error-permisos/', views.pagina_error_permisos, name='error_permisos'),
 
     # path('login/', views.login, name='iniciar_sesion'),
     path('login/', views_django.LoginView.as_view(template_name='login.html'), name='iniciar_sesion'),
