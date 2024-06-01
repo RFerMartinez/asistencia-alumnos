@@ -14,11 +14,11 @@
 
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">NOMBRE DE USUARIO</th>
                     <th scope="col">Acciones</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nombre de usuario</th>
+                    <th>Roles</th>
                 </tr>
             </thead>
 
@@ -26,12 +26,30 @@
 
                 {% for u in usuarios %}
                     <tr>
-                        <th scope="row">{{u.pk}}</th>
-                            <td>{{u.first_name}}</td>
-                            <td>{{u.last_name}}</td>
-                            <td>{{u.username}}</td>
+                        <th scope="row"><a href="#" class="btn btn-primary btn-sm">editar</a></th>
+                            <td>{{u.last_name|upper}}</td>
+                            <td>{{u.first_name|title}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-sm">editar</a>
+                                {{u.username}}
+                            </td>
+                            <td>
+                                {% if u.es_admin %}
+                                    <p><i class="fas fa-check-circle" style="color: green;"></i> Es Admin</p>
+                                {% else %}
+                                    <p><i class="fas fa-times-circle color_x" style="color: red;"></i> No es Admin</p>
+                                {% endif %}
+
+                                {% if u.es_profesor %}
+                                    <p><i class="fas fa-check-circle color_y" style="color: green;"></i> Es Profesor</p>
+                                {% else %}
+                                    <p><i class="fas fa-times-circle color_x" style="color: red;"></i> No es Profesor</p>
+                                {% endif %}
+
+                                {% if u.es_alumno %}
+                                    <p><i class="fas fa-check-circle color_y" style="color: green;"></i> Es Alumno</p>
+                                {% else %}
+                                    <p><i class="fas fa-times-circle color_x" style="color: red;"></i> No es Alumno</p>
+                                {% endif %}
                             </td>
                     </tr>
                 {% empty %} <!--En el caso de que el for anterior no pueda iterar nada. Se ejecuta lo que esté en el 'empty'-->
