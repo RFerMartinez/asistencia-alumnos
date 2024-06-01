@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">{{icono}} MIS CLASES</h1>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Información</div>
+            <div class="card-body">
+                <h5 class="card-title">Cantidad de presentes</h5>
+                <p class="card-text">{{user.obtener_cantidad_presentes}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th> <!--Estado de si esoty presente o no...-->
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for c in clases %}
+                    <tr>
+                        <th scope="row">{{c.fecha}}</th>
+                            <td>
+
+                                {% if c.id in user.obtener_presentes%} <!--Si el id de la clase iterada se encuentra dentro de la lista..-->
+                                    <p style="color: green;">PRESENTE</p>
+                                {% else %}
+                                    <p style="color: red;">AUSENTE</p>
+                                {% endif %}
+                                
+                            </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        {% include 'base/paginacion.html' %}
+
+    </div>
+</div>
+
+
+
+<!-- <hr class="my-4"> -->
+
+{% endblock contenido %}
+

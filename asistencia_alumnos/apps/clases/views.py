@@ -16,7 +16,7 @@ from .models import Clase
 class ListarClases(ListView):
     template_name = "clases/lista.html"
     model = Clase
-    paginate_by = 10
+    paginate_by = 15
     context_object_name = "clases"
     
     def get_context_data(self, **kwards):
@@ -39,3 +39,12 @@ class EditarClase(UpdateView):
     model = Clase
     form_class = ClaseForm #Tiene el mismo modelo, ya que los campos que se usan para crear, también se usan para editar
     success_url = reverse_lazy('clases:listar_clases')
+
+class MisClases(ListView):
+    template_name = "clases/mis_clases.html"
+    model = Clase
+    context_object_name = "clases"
+    paginate_by = 15
+
+    def get_queryset(self):
+        return self.model.objects.all().order_by("-fecha")

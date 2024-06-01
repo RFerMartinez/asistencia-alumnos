@@ -5,6 +5,12 @@ from django.db import models
 class Clase(models.Model):
     fecha = models.DateField()
 
+    def __str__(self):
+        return self.fecha.strftime("%d-%m-%Y")
+    
+    def mostrar_fecha(self):
+        return self.fecha.strftime("%d-%m-%Y")
+
     def get_cantidad_presentes(self):
         return self.asistencias_relacion.count()
 

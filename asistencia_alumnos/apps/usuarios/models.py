@@ -14,4 +14,16 @@ class Usuario(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name}, {self.last_name}, ({self.username})"
+    
+    def obtener_presentes(self):
+        lista_asistencia = []
+        print(f"ASISTENCIAS DE: {self}")
+        for asistencia in self.mis_asistencias.all():
+            # print("assitencia", asistencia.clase.fecha)
+            lista_asistencia.append(asistencia.clase.id)
+
+        return lista_asistencia
+    
+    def obtener_cantidad_presentes(self):
+        return len(self.obtener_presentes())
 
